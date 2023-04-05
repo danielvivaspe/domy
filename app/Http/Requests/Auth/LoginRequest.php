@@ -19,6 +19,7 @@ class LoginRequest extends FormRequest
     public function authorize()
     {
         return true;
+        # TODO: User is authorized only if active == true
     }
 
     /**

@@ -1,0 +1,17 @@
+{
+    "roles": [
+        {
+            "name": "User",
+            "permissions": [
+                "HOME_CREATE"
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "name": "HOME_CREATE",
+            "type": null,
+            "description": "Create a new home"
+        }
+    ]
+}

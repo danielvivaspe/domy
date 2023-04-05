@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\DeviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum'])->group(function () {
+
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/home', 'details');
+    });
+
+    Route::controller(RoomController::class)->group(function () {
+        Route::get('/rooms', 'list');
+    });
+
+    Route::controller(DeviceController::class)->group(function () {
+        Route::get('/room/{room}/devices', 'get_by_room');
+    });
+
+
+
+
+
+
 });
